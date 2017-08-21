@@ -14,7 +14,8 @@ class Location {
     
     var _latitude: Double!
     var _longitude: Double!
-
+    var _updatedAt: Date!
+    
     var latitude: Double {
         if _latitude == nil {
             _latitude = 41.6561
@@ -27,5 +28,12 @@ class Location {
             _longitude = -0.8774
         }
         return _longitude
+    }
+    
+    var updatedAt: Date {
+        if _updatedAt == nil {
+            _updatedAt = Date()
+        }
+        return _updatedAt
     }
 }

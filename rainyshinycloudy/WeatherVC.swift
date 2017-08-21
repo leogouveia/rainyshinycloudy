@@ -23,7 +23,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     var forecast = Forecast()
     var forecasts = [Forecast]()
     let locationManager = CLLocationManager()
-    var currentLocation: CLLocation!
     var timeInSecsToUpdate = 10
     
     override func viewDidLoad() {
@@ -34,9 +33,10 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         
         resetMainUI()
         
-        
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        
+        
+        //locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         
         
     }
@@ -49,19 +49,25 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        //locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
         print("Error: ", error)
         
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("didUpdateLocations")
-        if let location = locations.last {
-            updateLocationData(location: location)
-            print("location: \(location)")
-            
-            manager.stopUpdatingLocation()
-        }
+        //print("didUpdateLocations")
+        
+        print("didUpdateLocations \(locations.last.debugDescription)")
+        
+        
+            if let location = locations.last {
+                updateLocationData(location: location)
+                print("location: \(location)")
+                
+                manager.stopUpdatingLocation()
+            }
+        
+        
     }
     
     func locationTimer() {
@@ -75,13 +81,15 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     }
     
     func updateLocationData(location: CLLocation) {
-        if (Location.sharedInstance.latitude != location.coordinate.latitude
-            && Location.sharedInstance.longitude != location.coordinate.longitude
-            ) {
+        print("updateLocationData \(location)")
+        
+        if (Location.sharedInstance._updatedAt == nil || Location.sharedInstance.updatedAt < location.timestamp) {
             Location.sharedInstance._latitude = location.coordinate.latitude
             Location.sharedInstance._longitude = location.coordinate.longitude
             updateWeather()
+
         }
+        
     }
     
     func updateWeather() {
@@ -154,6 +162,10 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         
     }
     
+    @IBAction func clickedButtonWeatcher(_ sender: UIButton) {
+        updateLocation()
+    }
 
+    
 }
 

@@ -88,15 +88,28 @@
                                             <constraint firstAttribute="width" secondItem="jRx-Ua-s6j" secondAttribute="height" multiplier="100:130" id="rCn-90-a54"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esX-c6-pk2">
+                                        <rect key="frame" x="317" y="20" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="03K-zJ-etN"/>
+                                            <constraint firstAttribute="width" constant="50" id="lcC-aK-bMw"/>
+                                        </constraints>
+                                        <state key="normal" title="Refresh" image="ios_refresh"/>
+                                        <connections>
+                                            <action selector="clickedButtonWeatcher:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J6w-2l-4JX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31764705882352939" green="0.64313725490196072" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="q1Z-gv-Kpe" firstAttribute="top" secondItem="biD-mc-dq3" secondAttribute="top" constant="20" id="6jK-nl-xSu"/>
                                     <constraint firstItem="q1Z-gv-Kpe" firstAttribute="leading" secondItem="biD-mc-dq3" secondAttribute="leading" constant="20" id="9GU-lY-ZZL"/>
+                                    <constraint firstItem="esX-c6-pk2" firstAttribute="top" secondItem="biD-mc-dq3" secondAttribute="top" constant="20" id="CoE-vy-PPH"/>
                                     <constraint firstItem="jRx-Ua-s6j" firstAttribute="leading" secondItem="biD-mc-dq3" secondAttribute="leading" constant="254" id="YKB-Ax-Gud"/>
                                     <constraint firstItem="jRx-Ua-s6j" firstAttribute="centerY" secondItem="biD-mc-dq3" secondAttribute="centerY" id="YtS-aH-6Sr"/>
                                     <constraint firstAttribute="bottom" secondItem="q1Z-gv-Kpe" secondAttribute="bottom" constant="20" id="ejo-gv-DcO"/>
                                     <constraint firstAttribute="trailing" secondItem="jRx-Ua-s6j" secondAttribute="trailing" constant="21" id="s6S-Uq-aOL"/>
+                                    <constraint firstAttribute="trailing" secondItem="esX-c6-pk2" secondAttribute="trailing" constant="8" id="wvC-PG-SdF"/>
                                     <constraint firstAttribute="height" constant="300" id="zje-3a-gBN"/>
                                 </constraints>
                             </view>
@@ -108,7 +121,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NeV-xn-fLV" id="w45-DK-YP4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Toz-BX-oVW">
@@ -203,4 +216,7 @@
             <point key="canvasLocation" x="133.59999999999999" y="136.28185907046478"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ios_refresh" width="256" height="256"/>
+    </resources>
 </document>
